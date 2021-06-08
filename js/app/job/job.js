@@ -36,26 +36,15 @@ function init() {
     // 公司名字搜索
     $('#company').bind('input propertychange', function () {
         getCompany()
-    })
-
-
-    $(function () {
-            var $company = $('#company');
-            $company.autocomplete({
-                source: companyName,
-                select: function (event, ui) {
-
-                    //加载公司相关的默认数据
-                    if (ui.item) {
-                        loadCompanyDate(ui.item.label);
-                    }
-
-
-                },
-            });
-        }
-    )
-    ;
+    }).autocomplete({
+        source: companyName,
+        select: function (event, ui) {
+            //加载公司相关的默认数据
+            if (ui.item) {
+                loadCompanyDate(ui.item.label);
+            }
+        },
+    });
 
 
 }
