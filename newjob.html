@@ -13,6 +13,9 @@
     <!--标签插件-->
     <link rel="stylesheet" href="js/jquery-tags-input/jquery.tagsinput.min.css">
     <link href="css/style.min.css" rel="stylesheet">
+
+    <!-- 引入jQuery UI的css文件 -->
+    <link href="css/jquery-ui.min.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -98,37 +101,77 @@
 
                                 <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data"
                                       onsubmit="return false;">
-                                    <div class="col-xs-14">
-                                        <label for="isRec">是否推荐工作</label>
-                                        <select class="form-control selectpicker" name="isRec" id="isRec">
-                                            <option value="false">否</option>
-                                            <option value="true">是</option>
+
+
+
+                                    <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <label for="type">职位类型</label>
+                                        <select class="form-control selectpicker" name="type" id="type">
+                                            <optgroup label="前工序">
+                                                <option>前工序管理</option>
+                                                <option>下料</option>
+                                                <option>精裁</option>
+                                                <option>打架子</option>
+                                                <option>压机</option>
+                                                <option>雕刻</option>
+                                                <option>木磨</option>
+                                                <option>异型</option>
+                                            </optgroup>
+                                            <optgroup label="后工序">
+                                                <option>后工序管理</option>
+                                                <option>灰工</option>
+                                                <option>油磨</option>
+                                                <option>贴纸</option>
+                                                <option>贴皮</option>
+                                                <option>底漆</option>
+                                                <option>面漆</option>
+                                                <option>助手</option>
+                                                <option>质检</option>
+                                                <option>质检主任</option>
+                                                <option>打包</option>
+                                                <option>清货</option>
+                                                <option>搬运</option>
+                                            </optgroup>
+                                            <optgroup label="行政">
+                                                <option>厂长</option>
+                                                <option>会计</option>
+                                                <option>财务</option>
+                                            </optgroup>
+                                            <optgroup label="文员">
+                                                <option>拆单文员</option>
+                                                <option>接单文员</option>
+                                                <option>下单文员</option>
+                                                <option>售后</option>
+                                            </optgroup>
+
+                                            <optgroup label="设计师">
+                                                <option>整装设计师</option>
+                                                <option>平面设计师</option>
+                                            </optgroup>
+
+                                            <optgroup label="销售">
+                                                <option>销售主管</option>
+                                                <option>销售</option>
+                                                <option>网络销售</option>
+                                            </optgroup>
+
+                                            <optgroup label="线上运营">
+                                                <option>网络运营</option>
+                                                <option>视频剪辑</option>
+                                            </optgroup>
+
+                                            <optgroup label="后勤">
+                                                <option>机修电工</option>
+                                                <option>司机</option>
+                                                <option>库管</option>
+                                                <option>普工</option>
+                                            </optgroup>
+
                                         </select>
-                                        <br/>
+                                    </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="col-xs-12" for="company">公司</label>
-                                        <div class="col-xs-12">
-                                            <input class="form-control" type="text" id="company" name="company"
-                                                   placeholder="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-14">
-                                        <label for="content">职位内容</label>
-                                        <textarea class="form-control input-lg" name="content" id="content"
-                                                  rows="8"></textarea>
-                                        <br/>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-xs-12" for="location">详细地址</label>
-                                        <div class="col-xs-12">
-                                            <input class="form-control" type="text" id="location" name="location"
-                                                   placeholder="">
-                                        </div>
-                                    </div>
 
                                     <div class="form-group">
                                         <label class="col-xs-12" for="name">职位名称</label>
@@ -139,13 +182,34 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-xs-12" for="payRrom">薪资</label>
+                                    <div class="col-xs-12">
+                                        <label for="content">职位详情</label>
+                                        <textarea class="form-control input-lg" name="content" id="content"
+                                                  rows="8"></textarea>
+                                        <br/>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-xs-14">
+                                        <label for="welfare">福利待遇</label>
+                                        <textarea class="form-control input-lg" name="welfare" id="welfare"
+                                                  rows="8"></textarea>
+                                        <br/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-xs-12" for="payFrom">薪资</label>
                                         <div class="col-xs-4">
-                                            <input class="form-control" type="text" id="payRrom" name="payRrom"
+                                            <input class="form-control" type="text" id="payFrom" name="payFrom"
+                                                   oninput="value=value.replace(/[^\d]/g,'')"
                                                    placeholder="起薪">
                                         </div>
+
+
                                         <div class="col-xs-4">
                                             <input class="form-control" type="text" id="payTo" name="payTo"
+                                                   oninput="value=value.replace(/[^\d]/g,'')"
                                                    placeholder="止薪">
                                         </div>
                                     </div>
@@ -160,45 +224,53 @@
                                         <br/>
                                     </div>
 
+
+                                    <div class="form-group">
+                                        <label class="col-xs-12" for="company">公司名称 </label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="company" name="company"
+                                                   placeholder="请输入公司名称">
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group">
                                         <label class="col-xs-12" for="phone">联系电话</label>
                                         <div class="col-xs-12">
                                             <input class="form-control" type="text" id="phone" name="phone"
+                                                   oninput="value=value.replace(/[^\d]/g,'')"
+                                                   placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-xs-12" for="location">详细地址</label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="location" name="location"
                                                    placeholder="">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-xs-12" for="tags">职位标签</label>
-                                        <div class="card-body">
+                                    <div class="col-xs-12">
+                                        <label for="tags">职位标签</label>
+
                                             <input class="form-control js-tags-input" type="text" id="tags" name="tags"
-                                                   placeholder="请输入标签" value="双休,加班补助">
-                                        </div>
+                                                   placeholder="请输入标签" value="待遇好,工价高,工资准时">
+
+                                    </div>
                                     </div>
 
                                     <div class="col-xs-14">
-                                        <label for="type">职位类型</label>
-                                        <select class="form-control selectpicker" name="type" id="type">
-                                            <option value="全职">全职</option>
-                                            <option value="兼职">兼职</option>
+                                        <label for="isRec">是否设置推荐</label>
+                                        <select class="form-control selectpicker" name="isRec" id="isRec">
+                                            <option value="否">否</option>
+                                            <option value="是">是</option>
                                         </select>
                                         <br/>
                                     </div>
 
-                                    <!--                                    <div class="form-group">-->
-                                    <!--                                        <label class="col-xs-12" for="user">发布者</label>-->
-                                    <!--                                        <div class="col-xs-12">-->
-                                    <!--                                            <input class="form-control" type="text" id="user" name="user"-->
-                                    <!--                                                   placeholder="">-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-
-                                    <div class="col-xs-14">
-                                        <label for="welfare">福利待遇</label>
-                                        <textarea class="form-control input-lg" name="welfare" id="welfare"
-                                                  rows="8"></textarea>
-                                        <br/>
-                                    </div>
 
                                     <div class="form-group">
                                         <div class="col-xs-12">
@@ -221,6 +293,7 @@
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
 <!--标签插件-->
@@ -229,6 +302,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
 <script type="text/javascript" src="js/app/job/job.js"></script>
+<script type="text/javascript" src="js/app/job/jobType.js"></script>
 
 
 </body>
