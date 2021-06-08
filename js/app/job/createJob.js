@@ -122,7 +122,6 @@ function push() {
 
 
     avJob.set('point', companys.get(company).get("point"));
-    avJob.set('city', companys.get(company).get("city"));
 
 
     // 将对象保存到云端
