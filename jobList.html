@@ -93,7 +93,7 @@
                             </div>
                         </form>
                         <div class="toolbar-btn-action">
-                            <a class="btn btn-primary m-r-5" href="newjob.html"><i class="mdi mdi-plus"></i> 新增岗位</a>
+                            <a class="btn btn-primary m-r-5" href="createJob.html"><i class="mdi mdi-plus"></i> 新增岗位</a>
 
                         </div>
                     </div>
@@ -127,14 +127,13 @@
 
                         <nav>
                             <ul class="pager">
-                                <li id="previous-page" class="disabled"><a href="#">上一页</a></li>
-
-
-                                <li id="page" class="active"><span>第1页</span></li>
+                                <li id="up-page"><a href="#">上一页</a></li>
+                                <li  class="disabled"><span id="page">第1页</span></li>
                                 <li id="next-page"><a href="#">下一页</a></li>
-                                <!--                                <li class="active">-->
-                                <!--                                    <input style="height: 38px;width:90px;border: 1px solid #ccc;padding: 6px 12px;border-radius: 2px; margin: 2px"-->
-                                <!--                                           type="text" placeholder="跳转至"></li>-->
+                                <li >
+                                    <input id="page-jump" style="height: 38px;width:90px;border: 1px solid #ccc;padding: 6px 12px;border-radius: 2px; margin: 2px"
+                                           oninput="value=value.replace(/[^\d]/g,'')"
+                                           type="text" placeholder="跳转至"></li>
                             </ul>
                         </nav>
 
@@ -156,6 +155,7 @@
 <script type="text/javascript" src="js/app/job/jobList.js"></script>
 <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
 
-
+<script src="js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="js/lightyear.js"></script>
 </body>
 </html>

@@ -12,24 +12,61 @@ window.onload = function () {
 };
 
 
-index = 0;
+page = 0;
 
 
 //初始化
 function init() {
 
-    const query = new AV.Query('Jobs');
-    query.limit(10);
-    query.skip(index * 10);
-    query.include('company')
-    query.find().then((jobData) => {
+    getData()
 
-        jobData.forEach((job, index) => {
-            addItem(job, index)
-        });
+    $("#page-jump").bind('keypress', function (event) {
+        if (event.which === 13) {
+            console.log("跳转至" + $(this).val())
+            page = parseInt($(this).val())
+            getData()
+        }
+    });
+
+    $("#next-page").click(function () {
+        page++
+        getData()
+    });
+
+    $("#up-page").click(function () {
+        if (page > 0) {
+            page--
+            getData()
+        }else {
+            lightyear.notify('没有此页数据', 'danger', 300);
+        }
     });
 
 
+}
+
+
+function getData() {
+
+    lightyear.loading('show');
+
+
+    $("#page").text('第' + page  + '页')
+    const query = new AV.Query('Jobs');
+    query.limit(10);
+    query.skip(page * 10);
+    query.include('company')
+    query.find().then((jobData) => {
+        lightyear.loading('hide');
+        $("#job-list").empty();
+        if (jobData.length <= 0) {
+            lightyear.notify('没有此页数据', 'warning', 300);
+        } else {
+            jobData.forEach((job, index) => {
+                addItem(job, index)
+            });
+        }
+    });
 }
 
 

@@ -96,83 +96,84 @@
               <div class="card-body">
 
                 <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data" onsubmit="return false;">
-<!--                  <div class="col-xs-14">-->
-<!--                    <label for="example-isrec">是否推荐工作</label>-->
-<!--                    <select class="form-control selectpicker" name="example-isrec" id="example-isrec">-->
-<!--                      <option value="true">是</option>-->
-<!--                      <option value="false">否</option>-->
-<!--                    </select>-->
-<!--                    <br/>-->
-<!--                  </div>-->
+                    <div class="form-group">
+                        <label class="col-xs-12" for="name">公司名称</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="name" name="name" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-xs-12" for="icon">上传公司LOGO</label>
+                        <div class="col-xs-12">
+                            <input type="file" id="icon" name="icon">
+                        </div>
+                    </div>
 
                   <div class="form-group">
                     <label class="col-xs-12" for="city">城市</label>
                     <div class="col-xs-12">
-                      <input class="form-control" type="text" id="city" name="city" placeholder="">
+                      <input class="form-control" type="text" id="city" name="city" placeholder="格式为[重庆·沙坪坝]">
                     </div>
                   </div>
 
-                  <div class="col-xs-14">
-                    <label for="dec">公司详情</label>
-                    <textarea class="form-control input-lg" name="dec" id="dec" rows="8"></textarea>
-                    <br/>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-xs-12" for="icon">上传公司LOGO</label>
-                    <div class="col-xs-12">
-                      <input type="file" id="icon" name="icon">
+                    <div class="form-group">
+                        <label class="col-xs-12" for="location">详细地址</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="location" name="location" placeholder="">
+                        </div>
                     </div>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-xs-12" for="location">详细地址</label>
-                    <div class="col-xs-12">
-                      <input class="form-control" type="text" id="location" name="location" placeholder="">
-                    </div>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-xs-12" for="master">法人</label>
-                    <div class="col-xs-12">
-                      <input class="form-control" type="text" id="master" name="master" placeholder="">
+                    <div class="form-group">
+                        <label class="col-xs-12" for="master">法人</label>
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" id="master" name="master" placeholder="">
+                        </div>
                     </div>
-                  </div>
 
-                  <div class="form-group">
-                    <label class="col-xs-12" for="name">公司名称</label>
-                    <div class="col-xs-12">
-                      <input class="form-control" type="text" id="name" name="name" placeholder="">
-                    </div>
-                  </div>
+
+
+
+
+
+
+
 
                   <div class="form-group">
                     <label class="col-xs-12" for="phone">电话</label>
                     <div class="col-xs-12">
-                      <input class="form-control" type="text" id="phone" name="phone" placeholder="">
+                      <input class="form-control" type="text" id="phone" name="phone"    oninput="value=value.replace(/[^\d]/g,'')" placeholder="">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-xs-12" for="point">坐标</label>
+                    <label class="col-xs-12" for="point">坐标  -->   <a href="https://lbs.amap.com/tools/picker" target="_blank">点我跳转坐标获取</a></label>
                     <div class="col-xs-12">
-                      <input class="form-control" type="text" id="point" name="point" placeholder="">
+                      <input class="form-control" type="text" id="point" name="point" placeholder="复制并填入坐标获取结果">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-xs-12" for="scale">公司规模</label>
                     <div class="col-xs-12">
-                      <input class="form-control" type="text" id="scale" name="scale" placeholder="例：101-200人">
+                      <input class="form-control" type="text" id="scale" name="scale" placeholder="例：101-200人/500套">
                     </div>
                   </div>
 
+
                   <div class="form-group">
-                    <label class="col-xs-12" for="tags">业务范围</label>
-                    <div class="card-body">
-                      <input class="form-control js-tags-input" type="text" id="tags" name="tags" placeholder="请输入标签" value="家具,门窗">
+                    <div class="col-xs-12">
+                      <label for="tags">公司标签</label>
+
+                      <input class="form-control js-tags-input" type="text" id="tags" name="tags"
+                             placeholder="请输入标签" value="家具">
+
                     </div>
                   </div>
+
+
 
                   <div class="form-group">
                     <label class="col-xs-12" for="tel">座机</label>
@@ -180,6 +181,14 @@
                       <input class="form-control" type="text" id="tel" name="tel" placeholder="">
                     </div>
                   </div>
+
+
+                    <div class="col-xs-14">
+                        <label for="dec">公司详情</label>
+                        <textarea class="form-control input-lg" name="dec" id="dec" rows="8"></textarea>
+                        <br/>
+                    </div>
+
 
                   <div class="form-group">
                     <div class="col-xs-12">
@@ -207,7 +216,10 @@
 <!--标签插件-->
 <script src="js/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script type="text/javascript" src="js/main.min.js"></script>
-<script type="text/javascript" src="js/app/job/createcompany.js"></script>
+<script type="text/javascript" src="js/app/job/createCompany.js"></script>
 <script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.10.1/dist/av-min.js"></script>
+
+<script src="js/bootstrap-notify.min.js"></script>
+<script type="text/javascript" src="js/lightyear.js"></script>
 </body>
 </html>

@@ -35,7 +35,8 @@
                 <nav class="sidebar-main">
                     <ul class="nav nav-drawer">
                         <li class="nav-item"><a href="jobList.html"><i class="mdi mdi-microsoft"></i>岗位管理</a></li>
-                        <li class="nav-item"><a href="companyList.html"><i class="mdi mdi-library-books"></i>公司管理</a></li>
+                        <li class="nav-item"><a href="companyList.html"><i class="mdi mdi-library-books"></i>公司管理</a>
+                        </li>
                         <li class="nav-item"><a href="zhgl.html"><i class="mdi mdi-comment-account"></i>账号管理</a></li>
 
                     </ul>
@@ -103,73 +104,72 @@
                                       onsubmit="return false;">
 
 
-
                                     <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="type">职位类型</label>
-                                        <select class="form-control selectpicker" name="type" id="type">
-                                            <optgroup label="前工序">
-                                                <option>前工序管理</option>
-                                                <option>下料</option>
-                                                <option>精裁</option>
-                                                <option>打架子</option>
-                                                <option>压机</option>
-                                                <option>雕刻</option>
-                                                <option>木磨</option>
-                                                <option>异型</option>
-                                            </optgroup>
-                                            <optgroup label="后工序">
-                                                <option>后工序管理</option>
-                                                <option>灰工</option>
-                                                <option>油磨</option>
-                                                <option>贴纸</option>
-                                                <option>贴皮</option>
-                                                <option>底漆</option>
-                                                <option>面漆</option>
-                                                <option>助手</option>
-                                                <option>质检</option>
-                                                <option>质检主任</option>
-                                                <option>打包</option>
-                                                <option>清货</option>
-                                                <option>搬运</option>
-                                            </optgroup>
-                                            <optgroup label="行政">
-                                                <option>厂长</option>
-                                                <option>会计</option>
-                                                <option>财务</option>
-                                            </optgroup>
-                                            <optgroup label="文员">
-                                                <option>拆单文员</option>
-                                                <option>接单文员</option>
-                                                <option>下单文员</option>
-                                                <option>售后</option>
-                                            </optgroup>
+                                        <div class="col-xs-12">
+                                            <label for="type">职位类型</label>
+                                            <select class="form-control selectpicker" name="type" id="type">
+                                                <optgroup label="前工序">
+                                                    <option>前工序管理</option>
+                                                    <option>下料</option>
+                                                    <option>精裁</option>
+                                                    <option>打架子</option>
+                                                    <option>压机</option>
+                                                    <option>雕刻</option>
+                                                    <option>木磨</option>
+                                                    <option>异型</option>
+                                                </optgroup>
+                                                <optgroup label="后工序">
+                                                    <option>后工序管理</option>
+                                                    <option>灰工</option>
+                                                    <option>油磨</option>
+                                                    <option>贴纸</option>
+                                                    <option>贴皮</option>
+                                                    <option>底漆</option>
+                                                    <option>面漆</option>
+                                                    <option>助手</option>
+                                                    <option>质检</option>
+                                                    <option>质检主任</option>
+                                                    <option>打包</option>
+                                                    <option>清货</option>
+                                                    <option>搬运</option>
+                                                </optgroup>
+                                                <optgroup label="行政">
+                                                    <option>厂长</option>
+                                                    <option>会计</option>
+                                                    <option>财务</option>
+                                                </optgroup>
+                                                <optgroup label="文员">
+                                                    <option>拆单文员</option>
+                                                    <option>接单文员</option>
+                                                    <option>下单文员</option>
+                                                    <option>售后</option>
+                                                </optgroup>
 
-                                            <optgroup label="设计师">
-                                                <option>整装设计师</option>
-                                                <option>平面设计师</option>
-                                            </optgroup>
+                                                <optgroup label="设计师">
+                                                    <option>整装设计师</option>
+                                                    <option>平面设计师</option>
+                                                </optgroup>
 
-                                            <optgroup label="销售">
-                                                <option>销售主管</option>
-                                                <option>销售</option>
-                                                <option>网络销售</option>
-                                            </optgroup>
+                                                <optgroup label="销售">
+                                                    <option>销售主管</option>
+                                                    <option>销售</option>
+                                                    <option>网络销售</option>
+                                                </optgroup>
 
-                                            <optgroup label="线上运营">
-                                                <option>网络运营</option>
-                                                <option>视频剪辑</option>
-                                            </optgroup>
+                                                <optgroup label="线上运营">
+                                                    <option>网络运营</option>
+                                                    <option>视频剪辑</option>
+                                                </optgroup>
 
-                                            <optgroup label="后勤">
-                                                <option>机修电工</option>
-                                                <option>司机</option>
-                                                <option>库管</option>
-                                                <option>普工</option>
-                                            </optgroup>
+                                                <optgroup label="后勤">
+                                                    <option>机修电工</option>
+                                                    <option>司机</option>
+                                                    <option>库管</option>
+                                                    <option>普工</option>
+                                                </optgroup>
 
-                                        </select>
-                                    </div>
+                                            </select>
+                                        </div>
                                     </div>
 
 
@@ -182,12 +182,12 @@
                                     </div>
 
                                     <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="content">职位详情</label>
-                                        <textarea class="form-control input-lg" name="content" id="content"
-                                                  rows="8"></textarea>
-                                        <br/>
-                                    </div>
+                                        <div class="col-xs-12">
+                                            <label for="content">职位详情</label>
+                                            <textarea class="form-control input-lg" name="content" id="content"
+                                                      rows="8"></textarea>
+                                            <br/>
+                                        </div>
                                     </div>
 
                                     <div class="col-xs-14">
@@ -253,13 +253,21 @@
                                     </div>
 
                                     <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="tags">职位标签</label>
+                                        <label class="col-xs-12" for="point">坐标  -->   <a href="https://lbs.amap.com/tools/picker" target="_blank">点我跳转坐标获取</a></label>
+                                        <div class="col-xs-12">
+                                            <input class="form-control" type="text" id="point" name="point" placeholder="复制并填入坐标获取结果">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+                                            <label for="tags">职位标签</label>
 
                                             <input class="form-control js-tags-input" type="text" id="tags" name="tags"
                                                    placeholder="请输入标签" value="待遇好,工价高,工资准时">
 
-                                    </div>
+                                        </div>
                                     </div>
 
                                     <div class="col-xs-14">

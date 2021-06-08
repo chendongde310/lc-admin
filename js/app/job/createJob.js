@@ -62,6 +62,7 @@ function push() {
     const phone = $("#phone").val();
     const company = $("#company").val();
     const payType = $("#payType").val();
+    const point = $("#point").val().split(',');
     const type = $("#type").val();
     const welfare = $("#welfare").val();
     const tags = $("#tags").val().split(',');
@@ -94,6 +95,11 @@ function push() {
     }
 
 
+    if (isEmpty(point, "坐标")) {
+        return;
+    }
+
+
     // 为 AV.Object 创建子类
     const Job = AV.Object.extend('Jobs');
 
@@ -112,6 +118,11 @@ function push() {
     avJob.set('welfare', welfare);
     avJob.set('tips', tags);
     avJob.set('isRec', isRec);
+    const la = parseFloat(point[0]);
+    const lo = parseFloat(point[1]);
+    const p = new AV.GeoPoint(lo, la);
+    avJob.set('point', p);
+
 
     const userAV = AV.Object.createWithoutData('_User', '60bb853d1bdb986f5f938bd2');
     avJob.set('user', userAV);
@@ -172,6 +183,12 @@ function getCompany() {
 function loadCompanyDate(label) {
     $("#phone").val(companys.get(label).get('phone'));
     $("#location").val(companys.get(label).get('location'));
+
+    const p = companys.get(label).get('point')
+    console.log(p)
+    const ps = p._longitude+ "," + p._latitude;
+    $("#point").val(ps);
+
 }
 
 

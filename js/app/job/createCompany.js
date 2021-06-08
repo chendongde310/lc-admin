@@ -21,32 +21,6 @@ function init() {
         push();
     })
 
-
-    // //根据选择设置默认数据
-    // $("#type").bind('input propertychange', function () {
-    //     const payType = $(this).val();
-    //     console.log("选择了：  " + payType)
-    //     //获取默认数据
-    //     $("#content").val(getContent(payType))
-    //     $("#welfare").val(getWelfare(payType))
-    //     $("#name").val(payType)
-    // })
-
-
-    // // 公司名字搜索
-    // $('#company').bind('input propertychange', function () {
-    //     getCompany()
-    // }).autocomplete({
-    //     source: companyName,
-    //     select: function (event, ui) {
-    //         //加载公司相关的默认数据
-    //         if (ui.item) {
-    //             loadCompanyDate(ui.item.label);
-    //         }
-    //     },
-    // });
-
-
 }
 
 
@@ -60,7 +34,7 @@ function push() {
     const master = $("#master").val();
     const name = $("#name").val();
     const phone = $("#phone").val();
-    const point = $("#point").val();
+    const point = $("#point").val().split(',');
     const scale = $("#scale").val();
     const tel = $("#tel").val();
     const tags = $("#tags").val().split(',');
@@ -96,15 +70,12 @@ function push() {
         return;
     }
 
-    if (isEmpty(tags, "业务范围")) {
-        return;
-    }
-
-    if (isEmpty(tel, "座机")) {
+    if (isEmpty(tags, "公司标签")) {
         return;
     }
 
 
+    lightyear.loading('show');
     var reader = new FileReader();
     reader.readAsDataURL(icon);
     reader.onload = function (e) {
@@ -122,26 +93,36 @@ function push() {
         avCompany.set('master', master);
         avCompany.set('name', name);
         avCompany.set('phone', phone);
-        //avCompany.set('point', point);
+        var la = parseFloat(point[0]);
+        var lo = parseFloat(point[1]);
+        const p = new AV.GeoPoint(lo, la);
+        avCompany.set('point', p);
         avCompany.set('scale', scale);
         avCompany.set('tags', tags);
         avCompany.set('tel', tel);
-
-
+        console.log(avCompany)
+        lightyear.loading('hide');
         // 将对象保存到云端
         avCompany.save().then((avJob) => {
             // 成功保存之后，执行其他逻辑
             console.log(`保存成功。objectId：${avCompany.id}`);
-            alert(`创建成功。objectId：${avCompany.id}`)
+            lightyear.notify('创建成功', 'success', 300);
         }, (error) => {
             // 异常处理
-            alert(`创建失败，请重试`)
+            lightyear.notify('创建失败' + error, 'danger', 300);
+            console.log(error)
         });
 
     }
 
 
 }
+
+
+function pushData(avCompany) {
+
+}
+
 
 function isEmpty(obj, title) {
     if (typeof obj == "undefined" || obj == null || obj == "") {
